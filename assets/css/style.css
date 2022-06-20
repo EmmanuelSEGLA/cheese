@@ -1,0 +1,237 @@
+/*fonts */
+
+@font-face {
+    font-family: 'honey_batterflyregular';
+    src: url('../fonts/webfonts/honey_batterfly-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/honey_batterfly-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'quickregular';
+    src: url('../fonts/webfonts/quick-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/quick-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sans_evothin';
+    src: url('../fonts/webfonts/made_evolve_sans_thin_evo_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_thin_evo_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sans_evoregular';
+    src: url('../fonts/webfonts/made_evolve_sans_regular_evo_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_regular_evo_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sansthin';
+    src: url('../fonts/webfonts/made_evolve_sans_thin_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_thin_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sans_evolight';
+    src: url('../fonts/webfonts/made_evolve_sans_light_evo_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_light_evo_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sansmedium';
+    src: url('../fonts/webfonts/made_evolve_sans_medium_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_medium_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sans_evomedium';
+    src: url('../fonts/webfonts/made_evolve_sans_medium_evo_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_medium_evo_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sansregular';
+    src: url('../fonts/webfonts/made_evolve_sans_regular_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_regular_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'brookeregular';
+    src: url('../fonts/webfonts/brooke-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/brooke-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'honey_batterflyregular';
+    src: url('../fonts/webfonts/honey_batterfly-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/honey_batterfly-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sansbold';
+    src: url('../fonts/webfonts/made_evolve_sans_bold_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_bold_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'made_evolve_sans_evobold';
+    src: url('../fonts/webfonts/made_evolve_sans_bold_evo_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/webfonts/made_evolve_sans_bold_evo_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ----------------------------------------------------------- */
+*{
+    padding: 0;
+    margin: 0;
+    display: flex;
+} 
+
+
+
+
+
+
+.nav-link-1{
+    font-size: 50px;
+    text-decoration: none;
+    font-family: honey_batterflyregular;
+    
+    text-shadow: 10px;
+}
+.nav-link{
+    font-size: 45px;
+    text-decoration: none;
+    font-family: made_evolve_sans_evolight;
+    
+   
+}
+
+
+#div1{
+ 
+    
+    max-height: 100vh;
+}
+
+#presentation{
+    height: 96vh;
+    font-size: 25px;
+
+
+
+
+    background-image:
+    url(../images/R.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: aquamarine;
+}
+
+
+#jumbstron{
+    padding-top: 250px;
+    
+
+
+}
+
+#allons-y{
+    text-decoration: none;
+    background-color: rgba(78, 119, 253, 0.877);
+    border-radius: 45px;
+    color: #ffffff;
+    text-shadow: #ffffff 5px;
+    font-size:25px;
+    
+}
+
+#diva{
+    opacity: 50;
+    position: absolute;
+    height: 96vh;
+    font-size: 25px;
+
+
+
+
+    background-image:
+    url(../images/R.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(127, 255, 212, 0.281);
+}

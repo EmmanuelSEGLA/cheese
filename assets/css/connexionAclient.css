@@ -1,0 +1,87 @@
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+}
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+}
+.form-wrapper .card{
+    width: 360px;
+    padding: 20px;
+    background-color: rgb(8, 8, 8);
+
+}
+.card-header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px 20px 0;
+    font-size: 1.1rem;
+    color: rgba(249, 250, 249, 0.897);
+    box-shadow: 2px 3px 8px thistle;
+    border-radius: 40px;
+}
+.card-header .form-header{
+    flex: 50%;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    user-select: none;
+    cursor: pointer;
+}
+.card-header .form-header.active{
+    box-shadow: inset 1px 1px 2px rgba(19 210 177 / 55%),
+    inset 1px 1px 2px rgba(19 210 177 / 55%),
+    inset -1px 1px 2px rgba(19 210 177 / 55%),
+    inset -1px -1px 2px rgba(19 210 177 / 55%);
+    border-color: aqua;
+    transition: border-color 0.3s, box-shadow 0.3;
+} 
+
+.card-body{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 40px 0;
+    text-align: center;
+}
+.form{flex: 0 0 100%;}
+.toggleform{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s , visibility 0.3s;
+}
+.form-control{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(134 255 249 /65%);
+    background: none;
+    outline: none;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    color: white;
+}
+.form-control::placeholder{
+    color:rgba(134 255 249 /65%);
+}
+.formButton{
+    border: 1px solid transparent;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    background-color: rgb(77, 243, 229);
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.formButton:hover{
+    box-shadow: 3px 5px 15px rgba(134 255 249 /65%);
+    transform: translateY(-5px);
+}
+
