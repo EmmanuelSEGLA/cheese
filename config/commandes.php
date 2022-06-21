@@ -1,12 +1,12 @@
 <?php
 
-function ajouterUser($nom, $prenom, $email, $motdepasse)
+function ajouterUser($nom, $email, $motdepasse)
 {
   if(require("connexion.php"))
   {
-    $req = $access->prepare("INSERT INTO utilisateurs (nom, prenom, email, motdepasse) VALUES (?, ?, ?, ?)");
+    $req = $access->prepare("INSERT INTO admin (pseudo, email, motdepasse) VALUES (?, ?, ?)");
 
-    $req->execute(array($nom, $prenom, $email, $motdepasse));
+    $req->execute(array($nom, $email, $motdepasse));
 
     return true;
 

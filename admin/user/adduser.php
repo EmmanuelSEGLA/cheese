@@ -3,24 +3,6 @@ session_start();
 
 require("../config/commandes.php");
 
-
-
-// if(!isset($_SESSION['xRttpHo0greL39']))
-// {
-//     header("Location: ../login.php");
-// }
-
-// if(empty($_SESSION['xRttpHo0greL39']))
-// {
-//     header("Location: ../login.php");
-// }
-
-
-// foreach($_SESSION['xRttpHo0greL39'] as $i){
-//   $nom = $i->pseudo;
-//   $email = $i->email;
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +38,7 @@ require("../config/commandes.php");
                               <a href="destroy.php" ><button type="button" class="btn btn-outline-danger">Déconnexion</button></a> 
                           </span><br>
                           <div class="container-fluid ">
-                          <!-- <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: ?$nom ?></h5> -->
+                          <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: <?= $nom ?></h5>
                           </div>
                   </div>
                   </nav>
@@ -69,7 +51,7 @@ require("../config/commandes.php");
 
 
   <div class="container-fluid text-center" style="margin-top:100px ;margin-bottom:10px;">
-    <h2>Modifier les données du produit</h2>
+    <h2>Ajouter un nouveau produit</h2>
 </div>
 
 
@@ -100,11 +82,12 @@ require("../config/commandes.php");
             <textarea class="form-control" name="desc" required></textarea>
           </div>
 
-          <button type="submit" name="valider"class="btn btn-outline-success" style="margin-left: 25%;margin-right: 25%; ">Ajouter un nouveau produit</button>
+          <button type="submit" name="valider"class="btn btn-outline-success" style="margin-left: 15%;margin-right: 15%; ">Ajouter un nouveau produit</button>
         </form>
 
       </div>
-    </div></div>
+    </div>
+  </div>
 
     
 </body>

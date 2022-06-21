@@ -21,7 +21,7 @@
 
                     <span style="margin-left: 0px;">
                         <a class="navbar-brand" href="#"><img src="assets/images/froma.png" style="margin-right: 250px; width: 350px;" alt=""></a>
-                        <a  ><button type="button" id="" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#myModal">Connexion</button></a>
+                        <a  href="login.php"><button type="button" id="" class="btn btn-outline-success" >Connexion</button></a>
                         <a href="catalogue.php" ><button type="button" class="btn btn-outline-danger">Nos produits</button></a>
                     </span>
                 
@@ -44,8 +44,7 @@
                       </li>
 
                       <li class="nav-item">
-                        <a class="nav-link" href="#" id="displayForm" data-bs-toggle="modal" data-bs-target="#myModal">Compte Client/Admin</a>
-
+                        <a class="nav-link" href="login.php">Compte Client/Admin</a>
                       </li>
 
                       <li class="nav-item">

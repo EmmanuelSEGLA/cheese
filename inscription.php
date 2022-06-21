@@ -1,87 +1,89 @@
-<?php
-// session_start();
-
-include "config/commandes.php";
-
-// if(isset($_SESSION['userxXJppk45hPGu']))
-// {
-//     if(!empty($_SESSION['userxXJppk45hPGu']))
-//     {
-//         header("Location: client/");
-//     }
-// }
-
-
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Login - MonoShop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>FROMAGE</title>
+    <link rel="shortcut icon" href="assets/images/jery - Copie.png" type="image/x-icon">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+
+    
+
+    <link href="assets/css/bootstrapmorphe.min.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/signin.css" rel="stylesheet">
+</head>
+<body class="text-center">
+    <style>
+     .sucess{
+        margin:auto;
+        padding:auto;
+     }    
+
+    </style>
+
+
 </head>
 <body>
-<br>
-<br>
-<br>
-<br>
+<?php
+require('config.php');
 
-<div class="container" style="display: flex; justify-content: start-end">
-    <div class="row">
-        <div class="col-md-10">
+if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
+	// récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
+	$username = stripslashes($_REQUEST['username']);
+	$username = mysqli_real_escape_string($conn, $username); 
+	// récupérer l'email et supprimer les antislashes ajoutés par le formulaire
+	$email = stripslashes($_REQUEST['email']);
+	$email = mysqli_real_escape_string($conn, $email);
+	// récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
+	$password = stripslashes($_REQUEST['password']);
+	$password = mysqli_real_escape_string($conn, $password);
+	
+	$query = "INSERT into `admin` (pseudo, email, type, motdepasse)
+				VALUES ('$username', '$email', 'user', '".hash('sha256', $password)."')";
+	$res = mysqli_query($conn, $query);
 
-        <form method="post">
-            <div class="mb-3">
-                <label for="nom" class="form-label">Nom</label>
-                <input type="name" name="nom" class="form-control" style="width: 350%;" >
-            </div>
-            <div class="mb-3">
-                <label for="prenom" class="form-label">Prenom</label>
-                <input type="name" name="prenom" class="form-control" style="width: 350%;" >
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" style="width: 350%;" >
-            </div>
-            <div class="mb-3">
-                <label for="motdepasse" class="form-label">Mot de passe</label>
-                <input type="password" name="motdepasse" class="form-control" style="width: 350%;">
-            </div>
-            <br>
-            <input type="submit" name="envoyer" class="btn btn-info" value="Envoyer">
-        </form>
+    if($res){
+       echo "<div class='sucess'>
+             <h3>Vous êtes inscrit avec succès.</h3>
+             <h2>Cliquez ici pour vous <a href='login.php'><br>connecter</a></h2>
+			 </div>";
+    }
+}else{
+?>
+<main class="form-signin w-100 m-auto">
+  <form method="post">
+    <img class="mb-4" src="assets/images/jery.png" alt="" width="150" height="170">
+    <h1 class="h3 mb-3 fw-normal">S'inscrire</h1>
 
-        </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name-example" name="username" required />
+      <label for="floatingInput">Nom complet</label>
     </div>
-</div>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required />
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword"  name="password" placeholder="Mot de passe" required />
+      <label for="floatingPassword">Password</label>
+    </div><br>
+
+    <a href=""><button class="w-100 btn btn-md btn-outline-success" name="submit" value="S'inscrire" " type="submit">Soumettre</button></a>
+ <br><br>
+    <p>Vous avez déjà un compte? <a href="login.php">Connectez-vous maintenant.</a></p>
+
     
+    <p class="mt-5 mb-3 text-muted">&copy; GROUP F</p>
+  </form>
+</main>
+<?php } ?>
+
 </body>
 </html>
-
-<?php
-
-if(isset($_POST['envoyer']))
-{
-    if(!empty($_POST['email']) AND !empty($_POST['motdepasse']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']))
-    {
-        $email = htmlspecialchars(strip_tags($_POST['email'])) ;
-        $motdepasse = htmlspecialchars(strip_tags($_POST['motdepasse']));
-        $nom = htmlspecialchars(strip_tags($_POST['nom']));
-        $prenom = htmlspecialchars(strip_tags($_POST['prenom']));
-
-        $user = ajouterUser($nom, $prenom, $email, $motdepasse);
-
-        if($user){
-            // $_SESSION['userxXJppk45hPGu'] = $user;
-            header('Location: index.php');
-        }else{
-            echo "Compte non créer !";
-        }
-    }
-
-}
-
-?>

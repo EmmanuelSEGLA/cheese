@@ -32,11 +32,11 @@ require("../config/commandes.php");
                             <a href="../admin/add.php"><button type="button" class="btn btn-outline-success">Nouveau</button></a>
                             <a href="../admin/afficher.php" ><button type="button" class="btn btn-outline-info">Nos produits</button></a>                       
                             <a  href="supprimer.php"><button type="button" class="btn btn-outline-warning">Suppression</button></a>
-                            <a  href="><button type="button" id="" class="btn btn-outline-primary">Compte</button></a>
+                            <a  href="adduser.php"><button type="button" id="" class="btn btn-outline-primary">Compte</button></a>
                             <a href="destroy.php" ><button type="button" class="btn btn-outline-danger">Déconnexion</button></a> 
                         </span><br>
                         <div class="container-fluid ">
-                        <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: <?= $nom ?></h5>
+                        <!-- <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: ?= $nom ?></h5> -->
                         </div>
                 </div>
                 </nav>

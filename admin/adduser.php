@@ -1,123 +1,101 @@
-<?php
-session_start();
-
-require("../config/commandes.php");
-
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../assets/css/bootstrapmorphe.min.css">
-    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
-    <script src="../assets/js/bootstrap.bundle.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
     <title>FROMAGE</title>
     <link rel="shortcut icon" href="../assets/images/jery - Copie.png" type="image/x-icon">
-</head>
-<body>
 
-  <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid bg-dark">
-              <div class="row">
-                  <nav class="navbar navbar-light bg-light fixed-top">
-                  <div class="container-fluid" style="display: flex;">
-
-                          <span style="margin-left: 0px;">
-                              <a class="navbar-brand" href="#"><img src="../assets/images/froma.png" style="margin-right: 250px; width: 350px;" alt=""></a>
-                              <a href="../admin/add.php"><button type="button" class="btn btn-outline-success">Nouveau</button></a>
-                              <a href="../admin/afficher.php" ><button type="button" class="btn btn-outline-info">Nos produits</button></a>                       
-                              <a  href="supprimer.php"><button type="button" class="btn btn-outline-warning">Suppression</button></a>
-                              <a  href="><button type="button" id="" class="btn btn-outline-primary">Compte</button></a>
-                              <a href="destroy.php" ><button type="button" class="btn btn-outline-danger">Déconnexion</button></a> 
-                          </span><br>
-                          <div class="container-fluid ">
-                          <h5 style="color: #545659; opacity: 0.5;">Connecté en tant que: <?= $nom ?></h5>
-                          </div>
-                  </div>
-                  </nav>
-              </div>
-          </div>
-      </nav>
-
-  </header>
-
-
-
-  <div class="container-fluid text-center" style="margin-top:100px ;margin-bottom:10px;">
-    <h2>Ajouter un nouveau produit</h2>
-</div>
-
-
-  <div class="album py-5 bg-light">
-    <div class="container" style="margin-left: 35%;margin-right: 35%; " >
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-      
-        <form method="post">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">L'image du produit</label>
-            <input type="name" class="form-control" name="image" required>
-
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Nom du produit</label>
-            <input type="text" class="form-control" name="nom"  required>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Prix</label>
-            <input type="number" class="form-control" name="prix" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Description</label>
-            <textarea class="form-control" name="desc" required></textarea>
-          </div>
-
-          <button type="submit" name="valider"class="btn btn-outline-success" style="margin-left: 15%;margin-right: 15%; ">Ajouter un nouveau produit</button>
-        </form>
-
-      </div>
-    </div>
-  </div>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
     
+
+    <link href="../assets/css/bootstrapmorphe.min.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/signin.css" rel="stylesheet">
+</head>
+<body class="text-center">
+    <style>
+     .sucess{
+        margin:auto;
+        padding:auto;
+     }    
+
+    </style>
+
+
+</head>
+<body>
+<?php
+require('../config.php');
+
+if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['type'], $_REQUEST['password'])){
+	// récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
+	$username = stripslashes($_REQUEST['username']);
+	$username = mysqli_real_escape_string($conn, $username); 
+	// récupérer l'email et supprimer les antislashes ajoutés par le formulaire
+	$email = stripslashes($_REQUEST['email']);
+	$email = mysqli_real_escape_string($conn, $email);
+	// récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
+	$password = stripslashes($_REQUEST['password']);
+	$password = mysqli_real_escape_string($conn, $password);
+	// récupérer le type (user | admin)
+	$type = stripslashes($_REQUEST['type']);
+	$type = mysqli_real_escape_string($conn, $type);
+	
+    $query = "INSERT into `admin` (pseudo, email, type, motdepasse)
+				  VALUES ('$username', '$email', '$type', '".hash('sha256', $password)."')";
+    $res = mysqli_query($conn, $query);
+
+    if($res){
+       echo "<div class='sucess'>
+         
+             <h2>L'utilisateur a été créée avec succés.</h2>
+             <h3>Cliquez ici pour retourner à votre <a href='afficher.php'>Espace de travail</a></h3>
+			 </div>";
+    }
+}else{
+?>
+<main class="form-signin w-100 m-auto">
+  <form method="post">
+    <img class="mb-4" src="../assets/images/jery.png" alt="" width="150" height="170">
+    <h1 class="h3 mb-3 fw-normal">Créer un Compte</h1>
+
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name-example" name="username" required />
+      <label for="floatingInput">Nom complet</label>
+    </div>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required />
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+			<select class="form-control" name="type" id="type" >
+				<option value="" disabled selected>   Type</option>
+				<option value="admin">Admin</option>
+				<option value="user">User</option>
+			</select>
+	</div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword"  name="password" placeholder="Mot de passe" required />
+      <label for="floatingPassword">Password</label>
+    </div><br>
+
+    <a href=""><button class="w-100 btn btn-md btn-outline-success" name="submit" value="S'inscrire" " type="submit">Soumettre</button></a>
+ <br><br>
+ 
+
+    
+    <p class="mt-5 mb-3 text-muted">&copy; GROUP F</p>
+  </form>
+</main>
+<?php } ?>
+
 </body>
 </html>
-
-<?php
-
-  if(isset($_POST['valider']))
-  {
-    if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['prix']) AND isset($_POST['desc']))
-    {
-    if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['desc']))
-	    {
-	    	$image = htmlspecialchars(strip_tags($_POST['image']));
-	    	$nom = htmlspecialchars(strip_tags($_POST['nom']));
-	    	$prix = htmlspecialchars(strip_tags($_POST['prix']));
-	    	$desc = htmlspecialchars(strip_tags($_POST['desc']));
-          
-          try 
-          {
-            ajouter($image, $nom, $prix, $desc);
-            header('Location: afficher.php');
-          } 
-          catch (Exception $e) 
-          {
-          	$e->getMessage();
-          }
-
-	    }
-    }
-  }
-
-?>

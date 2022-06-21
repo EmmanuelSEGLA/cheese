@@ -5,22 +5,22 @@ require("../config/commandes.php");
 
 
 
-if(!isset($_GET['id'])){
-    header("Location: afficher.php");
-}
+// if(!isset($_GET['id'])){
+//     header("Location: afficher.php");
+// }
 
-if(empty($_GET['id']) OR !is_numeric($_GET['id'])){
-    header("Location: afficher.php");
-}
+// if(empty($_GET['id']) OR !is_numeric($_GET['id'])){
+//     header("Location: afficher.php");
+// }
 
-if(isset($_GET['id'])){
+// if(isset($_GET['id'])){
     
-    if(!empty($_GET['id']) OR is_numeric($_GET['id']))
-    {
-        $id = $_GET['id'];
-        $leProduit = afficherUnProduit($id);
-    }
-}
+//     if(!empty($_GET['id']) OR is_numeric($_GET['id']))
+//     {
+//         $id = $_GET['id'];
+//         $leProduit = afficherUnProduit($id);
+//     }
+// }
 
 
 
